@@ -10,9 +10,21 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader
+  boot.loader = {
+    
+    # systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+     
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+
+      theme = ./grub-theme;
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -48,18 +60,51 @@
     variant = "";
   };
 
+  
+ 
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
+  services.displayManager.gdm.enable = false;
+  services.displayManager.sddm.wayland.enable = false;
   services.desktopManager.plasma6.enable = true;
   services.xserver.windowManager.i3.enable = true;
+
+  
+
+  services.xserver.videoDrivers = [ "modesetting" ];
+  hardware.graphics.enable = true;
+  
+  # boot.blacklistedKernelModules = [ "nouveau" ];
+  
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    open = false;
+
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
     arthur = {
       isNormalUser = true;
-      description = "Arthur";
+      description = "Arthur Work";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [];
+    };
+    arthur-games = {
+      isNormalUser = true;
+      description = "Arthur Games";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [
+      ];
+
     };
     
   };
@@ -70,19 +115,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    
+    # Default
     vim
     git
-    dmenu
-    i3status
-    i3lock
-    i3blocks
-    alacritty
     firefox
+    wget
     
-    kdePackages.konsole
-    kdePackages.dolphin
-    kdePackages.kate
-  #  wget
+    # i3
+    i3status i3lock i3blocks alacritty dmenu
+    
+    # KDE Plasma
+    kdePackages.konsole kdePackages.dolphin kdePackages.kate
+  
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
