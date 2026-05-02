@@ -48,6 +48,12 @@
     variant = "";
   };
 
+  services.xserver = {
+    enable = true;
+    displayManager.lightdm.enable = true;
+    windowManager.i3.enable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.arthur = {
     isNormalUser = true;
@@ -64,6 +70,12 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    dmenu
+    i3status
+    i3lock
+    i3blocks
+    alacritty
+    firefox
   #  wget
   ];
 
