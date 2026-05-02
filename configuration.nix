@@ -50,16 +50,21 @@
 
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
+
+    displayManager.gdm.enable = true;
+    desktopManager.plasma6.enable = true;
     windowManager.i3.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.arthur = {
-    isNormalUser = true;
-    description = "Arthur";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+  users.users = {
+    arthur = {
+      isNormalUser = true;
+      description = "Arthur";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [];
+    };
+    
   };
 
   # Allow unfree packages
