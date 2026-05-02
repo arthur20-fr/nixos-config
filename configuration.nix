@@ -49,7 +49,7 @@
   };
 
   services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.xserver.windowManager.i3.enable = true;
 
@@ -78,6 +78,10 @@
     i3blocks
     alacritty
     firefox
+    
+    kdePackages.konsole
+    kdePackages.dolphin
+    kdePackages.kate
   #  wget
   ];
 
