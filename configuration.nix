@@ -127,11 +127,19 @@
     git
     wget
     htop
+    curl
+
+    #compiling tools
+    gcc
+    gnumake
+    cmake
 
     # Default apps
+    alacritty 
     nautilus
     firefox
     discord
+    pavucontrol
 
     # Docker and its friends
     docker 
@@ -154,7 +162,11 @@
     rstudio
     
     # i3
-    i3status i3lock i3blocks alacritty dmenu networkmanagerapplet
+    i3status 
+    i3lock 
+    i3blocks 
+    dmenu 
+    networkmanagerapplet
     
     # KDE Plasma
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
