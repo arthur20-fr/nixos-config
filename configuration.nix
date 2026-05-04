@@ -71,8 +71,11 @@
 
   
 
-  services.xserver.videoDrivers = [ "modesetting" ];
-  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   
   # boot.blacklistedKernelModules = [ "nouveau" ];
   
@@ -80,6 +83,8 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     open = false;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
       offload.enable = true;
@@ -137,7 +142,7 @@
     clang clang-tools
 
     # Default apps
-    alacritty 
+    alacritty
     nautilus
     firefox
     chromium
@@ -179,6 +184,16 @@
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
   
   ];
+
+
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; 
+  };
+
+
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
