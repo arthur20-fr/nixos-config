@@ -123,23 +123,30 @@
     
     # Default utils
     vim
-    neovim    
+    neovim
     git
     wget
     htop
     curl
+    tree
 
-    #compiling tools
+    # Compiling tools
     gcc
     gnumake
     cmake
+    clang clang-tools
 
     # Default apps
     alacritty 
     nautilus
     firefox
+    chromium
     discord
     pavucontrol
+
+    # IDEs
+    jetbrains.idea
+    jetbrains.clion
 
     # Docker and its friends
     docker 
@@ -160,14 +167,14 @@
     # R langage
     R
     rstudio
-    
+
     # i3
     i3status 
     i3lock 
     i3blocks 
     dmenu 
     networkmanagerapplet
-    
+
     # KDE Plasma
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
   
