@@ -114,16 +114,29 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-38.8.4"
+  ];
+
   environment.systemPackages = with pkgs; [
     
-    # Default
+    # Default utils
     vim
     git
     firefox
     wget
+
+    discord
+    
+    htop
+
+    # R langage
+    R
+    rstudio
     
     # i3
-    i3status i3lock i3blocks alacritty dmenu
+    i3status i3lock i3blocks alacritty dmenu networkmanagerapplet
     
     # KDE Plasma
     kdePackages.konsole kdePackages.dolphin kdePackages.kate
