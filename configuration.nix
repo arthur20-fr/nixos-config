@@ -126,10 +126,18 @@
     git
     firefox
     wget
-
     discord
-    
     htop
+
+    # Python langage
+    (python3.withPackages (ps : with ps; [
+      pandas
+      requests
+      numpy
+      matplotlib
+      ipython
+      apache-airflow
+    ]))
 
     # R langage
     R
