@@ -123,11 +123,21 @@
     
     # Default utils
     vim
+    neovim    
     git
-    firefox
     wget
-    discord
     htop
+
+    # Default apps
+    nautilus
+    firefox
+    discord
+
+    # Docker and its friends
+    docker 
+    docker-compose
+    grafana
+    prometheus 
 
     # Python langage
     (python3.withPackages (ps : with ps; [
@@ -147,7 +157,7 @@
     i3status i3lock i3blocks alacritty dmenu networkmanagerapplet
     
     # KDE Plasma
-    kdePackages.konsole kdePackages.dolphin kdePackages.kate
+    #kdePackages.konsole kdePackages.dolphin kdePackages.kate
   
   ];
 
