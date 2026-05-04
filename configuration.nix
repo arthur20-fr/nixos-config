@@ -12,10 +12,10 @@
 
   # Bootloader
   boot.loader = {
-    
+
     # systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
-     
+
     grub = {
       enable = true;
       efiSupport = true;
@@ -60,25 +60,22 @@
     variant = "";
   };
 
-  
- 
   services.xserver.enable = true;
+
   services.displayManager.sddm.enable = true;
   services.displayManager.gdm.enable = false;
   services.displayManager.sddm.wayland.enable = false;
   services.desktopManager.plasma6.enable = true;
+
   services.xserver.windowManager.i3.enable = true;
-
-  
-
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
-  
+
   # boot.blacklistedKernelModules = [ "nouveau" ];
-  
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -92,8 +89,6 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
-
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
@@ -109,9 +104,7 @@
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
       ];
-
     };
-    
   };
 
   # Allow unfree packages
@@ -125,48 +118,51 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    
-    # Default utils
-    vim
-    neovim
-    git
-    wget
-    htop
-    curl
-    tree
 
-    # Compiling tools
-    gcc
-    gnumake
-    cmake
-    clang clang-tools
+    # Default utils
+    curl
+    #flameshot
+    scrot
+    xclip
+    git
+    htop
+    neovim
+    pavucontrol
+    tree
+    vim
+    wget
 
     # Default apps
     alacritty
-    nautilus
-    firefox
     chromium
     discord
-    pavucontrol
+    firefox
+    nautilus
+
+    # Compiling tools
+    clang clang-tools
+    cmake
+    gcc
+    gnumake
 
     # IDEs
     jetbrains.idea
     jetbrains.clion
 
     # Docker and its friends
-    docker 
+    docker
     docker-compose
     grafana
-    prometheus 
+    prometheus
 
     # Python langage
     (python3.withPackages (ps : with ps; [
+      apache-airflow
+      ipython
+      matplotlib
+      numpy
       pandas
       requests
-      numpy
-      matplotlib
-      ipython
-      apache-airflow
     ]))
 
     # R langage
@@ -174,26 +170,22 @@
     rstudio
 
     # i3
-    i3status 
-    i3lock 
-    i3blocks 
-    dmenu 
+    i3status
+    i3lock
+    i3blocks
+    dmenu
     networkmanagerapplet
 
     # KDE Plasma
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
-  
+
   ];
-
-
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; 
   };
 
-
-  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
