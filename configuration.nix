@@ -140,6 +140,7 @@
     vim
     wget
     xclip
+    xss-lock
 
     # Default apps
     alacritty
