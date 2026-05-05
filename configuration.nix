@@ -107,6 +107,14 @@
     };
   };
 
+  # Already done by KDE but better to still declare it
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -126,6 +134,7 @@
     htop
     neovim
     pavucontrol
+    pulseaudio
     scrot
     tree
     vim
