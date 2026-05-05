@@ -120,17 +120,17 @@
   environment.systemPackages = with pkgs; [
 
     # Default utils
+    bat
     curl
-    #flameshot
-    scrot
-    xclip
     git
     htop
     neovim
     pavucontrol
+    scrot
     tree
     vim
     wget
+    xclip
 
     # Default apps
     alacritty
@@ -176,6 +176,9 @@
     dmenu
     networkmanagerapplet
 
+    # Other
+    ntfs3g # NTFS driver
+
     # KDE Plasma
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
 
@@ -185,7 +188,6 @@
     enable = true;
     remotePlay.openFirewall = true; 
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
