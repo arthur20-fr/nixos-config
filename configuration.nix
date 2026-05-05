@@ -176,6 +176,11 @@
     dmenu
     networkmanagerapplet
 
+    # Manual pages
+    man-pages
+    man-pages-posix
+
+
     # Other
     ntfs3g # NTFS driver
 
