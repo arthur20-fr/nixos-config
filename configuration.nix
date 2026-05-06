@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
     ];
 
+  # more power but less chance of crash
+  #boot.kernelParams = [ "iwlwifi.power_save=0" ];
+
   # Bootloader
   boot.loader = {
 
@@ -78,7 +81,7 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     open = false;
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -112,8 +115,6 @@
     enable = true;
     pulse.enable = true;
   };
-
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -176,9 +177,18 @@
     ]))
 
     # R langage
-    R
-    rstudio
-
+    #R
+    #rstudio
+    (rstudioWrapper.override {
+      packages = with rPackages; [
+        readxl
+        dplyr
+        ggplot2
+        janitor
+        knitr
+        rmarkdown
+      ];
+    })
     # i3
     i3status
     i3lock
@@ -195,6 +205,7 @@
     ntfs3g # NTFS driver
 
     # KDE Plasma
+    kdePackages.polkit-kde-agent-1
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
 
   ];
@@ -203,6 +214,7 @@
     enable = true;
     remotePlay.openFirewall = true; 
   };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
