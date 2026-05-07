@@ -216,6 +216,16 @@
   };
 
 
+  xdg.mime.defaultApplications = {
+    "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
