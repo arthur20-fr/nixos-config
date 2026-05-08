@@ -88,6 +88,7 @@
 
     prime = {
       offload.enable = true;
+      offload.enableOffloadCmd = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
@@ -203,7 +204,9 @@
 
     # Other
     ntfs3g # NTFS driver
-
+    prismlauncher
+    jdk25_headless
+    
     # KDE Plasma
     kdePackages.polkit-kde-agent-1
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
@@ -238,13 +241,13 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 25565 ];
+    allowedUDPPorts = [ 25565 ];
+    checkReversePath = false;
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
