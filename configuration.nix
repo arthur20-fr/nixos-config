@@ -98,8 +98,8 @@
   users.users = {
     arthur = {
       isNormalUser = true;
-      description = "Arthur Work";
-      extraGroups = [ "networkmanager" "wheel" ];
+      description = "Arthur";
+      extraGroups = [ "networkmanager" "wheel" "docker"];
       packages = with pkgs; [];
     };
     arthur-games = {
@@ -238,6 +238,8 @@
   # };
 
   # List services that you want to enable:
+  
+  virtualisation.docker.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
