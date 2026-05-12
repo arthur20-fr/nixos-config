@@ -210,8 +210,14 @@
     # KDE Plasma
     kdePackages.polkit-kde-agent-1
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
+    
+    #VPN
+    pkgs.cloudflare-warp
 
   ];
+
+  services.cloudflare-warp.enable = true;
+
 
   programs.steam = {
     enable = true;
