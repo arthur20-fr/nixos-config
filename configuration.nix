@@ -114,6 +114,8 @@
   # Already done by KDE but better to still declare it
   services.pipewire = {
     enable = true;
+    alsa.enable = true; # enable alsa utils
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
 
@@ -125,18 +127,20 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-38.8.4"
+    #"python3.13-apache-airflow-2.7.3"
   ];
 
   environment.systemPackages = with pkgs; [
 
     # Default utils
+    alsa-utils
     bat
+    bash
     curl
     git
     htop
     neovim
     pavucontrol
-    pulseaudio
     scrot
     tree
     vim
@@ -160,6 +164,9 @@
     # IDEs
     jetbrains.idea
     jetbrains.clion
+    jetbrains.webstorm
+
+    #apache-airflow
 
     # Docker and its friends
     docker
@@ -169,7 +176,7 @@
 
     # Python langage
     (python3.withPackages (ps : with ps; [
-      apache-airflow
+     # apache-airflow
       ipython
       matplotlib
       numpy
@@ -190,6 +197,7 @@
         rmarkdown
       ];
     })
+
     # i3
     i3status
     i3lock
@@ -201,16 +209,15 @@
     man-pages
     man-pages-posix
 
-
     # Other
     ntfs3g # NTFS driver
     prismlauncher
     jdk25_headless
-    
+
     # KDE Plasma
     kdePackages.polkit-kde-agent-1
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
-    
+
     #VPN
     pkgs.cloudflare-warp
 
