@@ -77,6 +77,9 @@
     enable32Bit = true;
   };
 
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # boot.blacklistedKernelModules = [ "nouveau" ];
 
   hardware.nvidia = {
@@ -111,6 +114,12 @@
     };
   };
 
+  #services.printing.enable = true;
+  #services.avahi.enable = true;
+  #services.avahi.nssmdns4 = true;
+
+  #hardware.printers.ensurePrinters = [];
+
   # Already done by KDE but better to still declare it
   services.pipewire = {
     enable = true;
@@ -131,7 +140,20 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    cargo
+    rustup
+    rust-analyzer
+    gparted
 
+    rustc
+    clang_18
+    valgrind
+    jupyter
+    neofetch
+    nodejs
+    postgresql
+    maven
+    jdk21
     # Default utils
     alsa-utils
     bat
