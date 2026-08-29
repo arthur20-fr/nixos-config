@@ -8,26 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      
+      ./boot.nix
+
     ];
 
   # more power but less chance of crash
   #boot.kernelParams = [ "iwlwifi.power_save=0" ];
-
-  # Bootloader
-  boot.loader = {
-
-    # systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-
-      theme = ./grub-theme;
-    };
-  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
