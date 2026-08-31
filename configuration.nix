@@ -9,8 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       
-      ./boot/boot.nix
-
+      ./system/boot/boot.nix
+      ./system/nvidia.nix
     ];
 
   # more power but less chance of crash
@@ -68,21 +68,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # boot.blacklistedKernelModules = [ "nouveau" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    open = false;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    prime = {
-      offload.enable = true;
-      offload.enableOffloadCmd = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
