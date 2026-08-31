@@ -77,13 +77,13 @@
       extraGroups = [ "networkmanager" "wheel" "docker"];
       packages = with pkgs; [];
     };
-    arthur-games = {
+    /*arthur-games = {
       isNormalUser = true;
       description = "Arthur Games";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
       ];
-    };
+    };*/
   };
 
   #services.printing.enable = true;
