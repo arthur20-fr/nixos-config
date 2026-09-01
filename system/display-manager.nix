@@ -2,7 +2,7 @@
 
 let
   sddm-astronaut = (pkgs.sddm-astronaut.override {
-    embeddedTheme = "japanese_aesthetic";  # or any other theme
+    embeddedTheme = "pixel_sakura";  # or any other theme
     themeConfig = {
       # Customize colors and settings
       HeaderTextColor = "#d5c4a1";
