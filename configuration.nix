@@ -8,9 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      
+      ./system/networking.nix
       ./system/boot/boot.nix
       ./system/nvidia.nix
+      ./system/display-manager.nix
     ];
 
 # Set your time zone.
@@ -39,9 +40,6 @@
 
   services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.gdm.enable = false;
-  services.displayManager.sddm.wayland.enable = false;
   services.desktopManager.plasma6.enable = true;
 
   services.xserver.windowManager.i3.enable = true;
@@ -50,7 +48,7 @@
     enable = true;
     enable32Bit = true;
   };
-
+  # services.xserver.displayManager.setupCommands
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
