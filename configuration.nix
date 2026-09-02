@@ -106,7 +106,7 @@
     clang_18
     valgrind
     jupyter
-    neofetch
+    fastfetch
     nodejs
     postgresql
     maven
