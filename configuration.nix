@@ -92,7 +92,7 @@
   # $ nix search wget
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-38.8.4"
+    "electron-41.9.1"
     #"python3.13-apache-airflow-2.7.3"
   ];
 
