@@ -5,7 +5,7 @@
   # more power but less chance of crash
   #boot.kernelParams = [ "iwlwifi.power_save=0" ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
