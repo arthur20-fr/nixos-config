@@ -16,12 +16,12 @@
 
       laptop = lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
+        modules = [ ./hosts/laptop/configuration.nix ];
       };
 
       home-server = lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
+        modules = [ ./hosts/home-server/configuration.nix ];
       };
     };
   };
