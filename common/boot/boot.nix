@@ -13,7 +13,7 @@
       device = "nodev";
       useOSProber = true;
 
-      theme = ./grub-theme;
+      theme = ./grub-themes/space-isolation;
     };
   };
 }
