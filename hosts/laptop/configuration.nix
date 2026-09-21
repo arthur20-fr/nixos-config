@@ -96,6 +96,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    file
+    gimp
+
     cargo
     rustup
     rust-analyzer
