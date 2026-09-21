@@ -16,7 +16,10 @@
 
       laptop = lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/laptop/configuration.nix ];
+        modules = [ 
+          ./hosts/laptop/configuration.nix 
+          ./common/boot/boot.nix
+        ];
       };
 
       home-server = lib.nixosSystem {
