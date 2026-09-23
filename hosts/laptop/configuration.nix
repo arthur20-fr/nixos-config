@@ -7,7 +7,6 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
       ./system/networking.nix
       ./system/nvidia.nix
       ./system/display-manager.nix

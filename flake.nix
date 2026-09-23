@@ -21,6 +21,7 @@
         inherit system;
         modules = [ 
           ./hosts/laptop/configuration.nix 
+          ./hosts/laptop/hardware-configuration.nix 
           ./common/boot/boot.nix
         ];
       };
