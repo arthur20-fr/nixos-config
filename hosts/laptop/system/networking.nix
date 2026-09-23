@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  
+
   # more power but less chance of crash
   #boot.kernelParams = [ "iwlwifi.power_save=0" ];
 

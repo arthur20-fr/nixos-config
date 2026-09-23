@@ -9,36 +9,43 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-    nixosConfigurations = {
+    in
+    {
+      nixosConfigurations = {
 
-      laptop = lib.nixosSystem {
-        inherit system;
-        modules = [ 
-          ./hosts/laptop/configuration.nix 
-          ./hosts/laptop/hardware-configuration.nix 
-          ./common/boot/boot.nix
-        ];
+        laptop = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/laptop/configuration.nix
+            ./hosts/laptop/hardware-configuration.nix
+            ./common/boot/boot.nix
+          ];
+        };
+
+        home-server = lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/home-server/configuration.nix ];
+        };
       };
 
-      home-server = lib.nixosSystem {
-        inherit system;
-        modules = [ ./hosts/home-server/configuration.nix ];
+      homeConfigurations = {
+
+        arthur = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/laptop/home.nix ];
+        };
+
       };
     };
-
-    homeConfigurations = {
-
-      arthur = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./hosts/laptop/home.nix ];
-      };
-
-    };
-  };
 }

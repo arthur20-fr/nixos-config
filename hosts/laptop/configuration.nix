@@ -5,14 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./system/networking.nix
-      ./system/nvidia.nix
-      ./system/display-manager.nix
-    ];
+  imports = [
+    ./system/networking.nix
+    ./system/nvidia.nix
+    ./system/display-manager.nix
+  ];
 
-# Set your time zone.
+  # Set your time zone.
   time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
@@ -48,7 +47,10 @@
   };
   # services.xserver.displayManager.setupCommands
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # boot.blacklistedKernelModules = [ "nouveau" ];
 
@@ -57,16 +59,22 @@
     arthur = {
       isNormalUser = true;
       description = "Arthur";
-      extraGroups = [ "networkmanager" "wheel" "docker"];
-      packages = with pkgs; [];
-    };
-    /*arthur-games = {
-      isNormalUser = true;
-      description = "Arthur Games";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
       ];
-    };*/
+      packages = with pkgs; [ ];
+    };
+    /*
+      arthur-games = {
+        isNormalUser = true;
+        description = "Arthur Games";
+        extraGroups = [ "networkmanager" "wheel" ];
+        packages = with pkgs; [
+        ];
+      };
+    */
   };
 
   #services.printing.enable = true;
@@ -136,7 +144,8 @@
     nautilus
 
     # Compiling tools
-    clang clang-tools
+    clang
+    clang-tools
     cmake
     gcc
     gnumake
@@ -155,14 +164,16 @@
     prometheus
 
     # Python langage
-    (python3.withPackages (ps : with ps; [
-     # apache-airflow
-      ipython
-      matplotlib
-      numpy
-      pandas
-      requests
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        # apache-airflow
+        ipython
+        matplotlib
+        numpy
+        pandas
+        requests
+      ]
+    ))
 
     # R langage
     #R
@@ -205,12 +216,10 @@
 
   services.cloudflare-warp.enable = true;
 
-
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; 
+    remotePlay.openFirewall = true;
   };
-
 
   xdg.mime.defaultApplications = {
     "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
@@ -231,7 +240,7 @@
   # };
 
   # List services that you want to enable:
-  
+
   virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
