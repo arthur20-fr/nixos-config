@@ -1,6 +1,5 @@
-
 { config, pkgs, ... }:
-  
+
 {
   environment.systemPackages = with pkgs; [
     # R langage
@@ -17,6 +16,5 @@
       ];
     })
   ];
-
 
 }

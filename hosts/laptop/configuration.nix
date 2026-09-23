@@ -101,7 +101,6 @@
     #TODO add this to the main config if rstudio in active
     #"electron-41.9.1"
   ];
-  
 
   environment.systemPackages = with pkgs; [
   ];
