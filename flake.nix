@@ -29,7 +29,8 @@
           modules = [
             ./hosts/laptop/configuration.nix
             ./hosts/laptop/hardware-configuration.nix
-            ./common/boot/boot.nix
+            ./modules/system/boot/boot.nix
+            ./modules/services/rstudio/default.nix
           ];
         };
 

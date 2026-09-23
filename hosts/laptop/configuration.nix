@@ -175,20 +175,6 @@
       ]
     ))
 
-    # R langage
-    #R
-    #rstudio
-    (rstudioWrapper.override {
-      packages = with rPackages; [
-        readxl
-        dplyr
-        ggplot2
-        janitor
-        knitr
-        rmarkdown
-      ];
-    })
-
     # i3
     i3status
     i3lock
