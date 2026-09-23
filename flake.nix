@@ -30,7 +30,7 @@
             ./hosts/laptop/configuration.nix
             ./hosts/laptop/hardware-configuration.nix
             ./modules/system/boot/boot.nix
-            ./modules/services/rstudio/default.nix
+            #./modules/services/rstudio/default.nix
           ];
         };
 
