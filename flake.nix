@@ -31,6 +31,7 @@
             ./hosts/laptop/hardware-configuration.nix
             ./modules/system/boot/boot.nix
             ./modules/all-pkgs.nix
+            ./modules/services/steam/default.nix
             #./modules/services/rstudio/default.nix
           ];
         };

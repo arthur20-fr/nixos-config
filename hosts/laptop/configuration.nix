@@ -43,7 +43,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
-    enable32Bit = true;
+   # enable32Bit = true;
   };
   # services.xserver.displayManager.setupCommands
 
@@ -104,13 +104,6 @@
 
   environment.systemPackages = with pkgs; [
   ];
-
-  services.cloudflare-warp.enable = true;
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-  };
 
   xdg.mime.defaultApplications = {
     "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
