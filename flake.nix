@@ -41,6 +41,7 @@
           inherit system;
           modules = [ 
 	    ./hosts/home-server/configuration.nix 
+            ./modules/system/boot/boot.nix
             ./modules/limited-pkgs.nix
           ];
         };
