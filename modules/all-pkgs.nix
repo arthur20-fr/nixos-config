@@ -22,16 +22,7 @@
     # Default utils
     alsa-utils
     bat
-    bash
-    curl
-    git
-    htop
-    neovim
-    pavucontrol
     scrot
-    tree
-    vim
-    wget
     xclip
     xss-lock
 
@@ -39,7 +30,6 @@
     alacritty
     chromium
     discord
-    firefox
     nautilus
 
     # Compiling tools
@@ -53,14 +43,6 @@
     jetbrains.idea
     jetbrains.clion
     jetbrains.webstorm
-
-    #apache-airflow
-
-    # Docker and its friends
-    docker
-    docker-compose
-    grafana
-    prometheus
 
     # Python langage
     (python3.withPackages (
@@ -80,10 +62,6 @@
     i3blocks
     dmenu
     networkmanagerapplet
-
-    # Manual pages
-    man-pages
-    man-pages-posix
 
     # Other
     ntfs3g # NTFS driver

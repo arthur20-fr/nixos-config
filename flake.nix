@@ -31,6 +31,7 @@
             ./hosts/laptop/hardware-configuration.nix
             ./modules/system/boot/boot.nix
             ./modules/all-pkgs.nix
+            ./modules/limited-pkgs.nix
             ./modules/system/steam/default.nix
             #./modules/system/rstudio/default.nix
           ];
@@ -38,7 +39,10 @@
 
         home-server = lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/home-server/configuration.nix ];
+          modules = [ 
+	    ./hosts/home-server/configuration.nix 
+            ./modules/limited-pkgs.nix
+          ];
         };
       };
 
