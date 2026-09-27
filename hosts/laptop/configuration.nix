@@ -47,11 +47,6 @@
   };
   # services.xserver.displayManager.setupCommands
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   # boot.blacklistedKernelModules = [ "nouveau" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

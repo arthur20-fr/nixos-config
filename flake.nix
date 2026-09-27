@@ -32,6 +32,7 @@
             ./modules/system/boot/boot.nix
             ./modules/all-pkgs.nix
             ./modules/limited-pkgs.nix
+            ./modules/experimental-features/default.nix
             ./modules/system/steam/default.nix
             #./modules/system/rstudio/default.nix
           ];
@@ -42,6 +43,7 @@
           modules = [ 
 	    ./hosts/home-server/configuration.nix 
             ./modules/system/boot/boot.nix
+            ./modules/experimental-features/default.nix
             ./modules/limited-pkgs.nix
           ];
         };
