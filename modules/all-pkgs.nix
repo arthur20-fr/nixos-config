@@ -73,7 +73,6 @@
     #kdePackages.konsole kdePackages.dolphin kdePackages.kate
 
     #VPN
-    pkgs.cloudflare-warp
 
   ];
 
