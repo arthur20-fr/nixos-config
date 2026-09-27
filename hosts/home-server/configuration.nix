@@ -102,6 +102,9 @@
       kdePackages.kate
     #  thunderbird
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPuacpkjcH5ClynEigNfTYHtOIQ8pfVt7b0ssSIWMzJT arthur@laptop"
+    ];
   };
 
   # Install firefox.
@@ -121,14 +124,21 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;  
+      PermitRootLogin = "no";
+      KbdInteractiveAuthentication = false;
+  };
 
+  }
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22 ];
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
