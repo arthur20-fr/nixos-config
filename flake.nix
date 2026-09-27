@@ -34,6 +34,7 @@
             ./modules/limited-pkgs.nix
             ./modules/system/experimental-features/default.nix
             ./modules/system/steam/default.nix
+            ./modules/system/tailscale/default.nix
             #./modules/system/rstudio/default.nix
           ];
         };
@@ -44,6 +45,7 @@
 	    ./hosts/home-server/configuration.nix 
             ./modules/system/boot/boot.nix
             ./modules/system/experimental-features/default.nix
+            ./modules/system/tailscale/default.nix
             ./modules/limited-pkgs.nix
           ];
         };
