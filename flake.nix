@@ -36,6 +36,7 @@
             ./modules/system/steam/default.nix
             ./modules/system/tailscale/default.nix
             #./modules/system/rstudio/default.nix
+            ./users/arthur/userconfig.nix
           ];
         };
 
@@ -47,7 +48,8 @@
             ./modules/system/experimental-features/default.nix
             ./modules/system/tailscale/default.nix
             ./modules/limited-pkgs.nix
-          ];
+            ./users/arthur/userconfig.nix
+         ];
         };
       };
 

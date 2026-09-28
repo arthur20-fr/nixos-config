@@ -49,29 +49,6 @@
 
   # boot.blacklistedKernelModules = [ "nouveau" ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
-    arthur = {
-      isNormalUser = true;
-      description = "Arthur";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "docker"
-      ];
-      packages = with pkgs; [ ];
-    };
-    /*
-      arthur-games = {
-        isNormalUser = true;
-        description = "Arthur Games";
-        extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-        ];
-      };
-    */
-  };
-
   #services.printing.enable = true;
   #services.avahi.enable = true;
   #services.avahi.nssmdns4 = true;
