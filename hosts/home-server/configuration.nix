@@ -5,11 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./ssh/default.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./ssh/default.nix
+  ];
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
@@ -57,7 +57,6 @@
     variant = "";
   };
 
-  
   # mise en veille desactivee
   services.logind.settings.Login = {
     HandleLidSwitch = "ignore";
@@ -65,12 +64,11 @@
     HandleHibernateKey = "ignore";
     IdleAction = "ignore";
   };
-  
+
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -98,10 +96,13 @@
   users.users.arthur = {
     isNormalUser = true;
     description = "Arthur";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -126,7 +127,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -135,6 +135,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 
 }

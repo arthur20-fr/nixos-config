@@ -43,7 +43,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
-   # enable32Bit = true;
+    # enable32Bit = true;
   };
   # services.xserver.displayManager.setupCommands
 

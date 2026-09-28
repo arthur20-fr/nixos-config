@@ -7,4 +7,3 @@
     remotePlay.openFirewall = true;
   };
 }
-

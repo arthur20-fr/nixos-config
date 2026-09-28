@@ -41,8 +41,8 @@
 
         home-server = lib.nixosSystem {
           inherit system;
-          modules = [ 
-	    ./hosts/home-server/configuration.nix 
+          modules = [
+            ./hosts/home-server/configuration.nix
             ./modules/system/boot/boot.nix
             ./modules/system/experimental-features/default.nix
             ./modules/system/tailscale/default.nix
