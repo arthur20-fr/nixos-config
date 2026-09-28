@@ -57,7 +57,7 @@
 
         arthur = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./hosts/laptop/home.nix ];
+          modules = [ ./users/arthur/home.nix ];
         };
 
       };
