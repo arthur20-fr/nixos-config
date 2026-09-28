@@ -5,6 +5,7 @@
 - `[SERVER]`: everything related to the server's personal config
 - `[LAPTOP]`: everything related to the laptop's personal config
 - `[MODULE][name]`: a module change
+- `[HOME]`: related to user or home-manager changes
 - `[FLAKE]`: modifications related to the flake itself
 - `[LINT]`: formatting files with nixfmt-tree
 - `[UPDATE]`: update to the flake's inputs
