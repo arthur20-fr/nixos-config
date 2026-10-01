@@ -47,8 +47,6 @@
   };
   # services.xserver.displayManager.setupCommands
 
-  # boot.blacklistedKernelModules = [ "nouveau" ];
-
   #services.printing.enable = true;
   #services.avahi.enable = true;
   #services.avahi.nssmdns4 = true;
