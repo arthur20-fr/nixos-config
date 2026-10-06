@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     file
     gimp
-
+    claude-code
     cargo
     rustup
     rust-analyzer
