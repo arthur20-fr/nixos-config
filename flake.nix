@@ -51,7 +51,18 @@
             ./users/arthur/userconfig.nix
          ];
         };
+        nixos = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/thinkpad/configuration.nix
+            ./modules/system/boot/boot.nix
+            ./modules/system/experimental-features/default.nix
+            ./modules/system/tailscale/default.nix
+         ];
+        };
       };
+
+     };
 
       homeConfigurations = {
 
